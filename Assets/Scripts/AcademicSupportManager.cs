@@ -22,34 +22,43 @@ public class AcademicSupportManager : MonoBehaviour
     }
 
     private void DisplaySupport()
+{
+    if (DataManager.Instance == null) return;
+
+    foreach (GameObject btn in instantiatedButtons)
     {
-        if (DataManager.Instance == null) return;
-
-        foreach (GameObject btn in instantiatedButtons)
-        {
-            if (btn != null) Destroy(btn);
-        }
-        instantiatedButtons.Clear();
-
-        List<AcademicSupport> supportServices = DataManager.Instance.academicSupport;
-        
-        Debug.Log($"Loading {supportServices.Count} support services from database");
-
-        foreach (AcademicSupport support in supportServices)
-        {
-            GameObject buttonObj = Instantiate(supportButtonPrefab, supportListContainer);
-            
-            TextMeshProUGUI[] texts = buttonObj.GetComponentsInChildren<TextMeshProUGUI>();
-            if (texts.Length > 0) texts[0].text = support.name;
-            if (texts.Length > 1) texts[1].text = support.location;
-
-            buttonObj.SetActive(true);
-            instantiatedButtons.Add(buttonObj);
-        }
-
-        Canvas.ForceUpdateCanvases();
-        LayoutRebuilder.ForceRebuildLayoutImmediate(supportListContainer.GetComponent<RectTransform>());
+        if (btn != null) Destroy(btn);
     }
+    instantiatedButtons.Clear();
+
+    List<AcademicSupport> supportServices = DataManager.Instance.academicSupport;
+    
+    Debug.Log($"Loading {supportServices.Count} support services from database");
+
+    foreach (AcademicSupport support in supportServices)
+    {
+        GameObject buttonObj = Instantiate(supportButtonPrefab, supportListContainer);
+        
+        TextMeshProUGUI[] texts = buttonObj.GetComponentsInChildren<TextMeshProUGUI>();
+        
+        // Build detailed string
+        string detailText = $"{support.name}\n" +
+                           $"📍 {support.location}\n" +
+                           $"⏰ {support.hours}\n" +
+                           $"Services: {support.services}";
+        
+        if (texts.Length > 0)
+        {
+            texts[0].text = detailText;
+        }
+
+        buttonObj.SetActive(true);
+        instantiatedButtons.Add(buttonObj);
+    }
+
+    Canvas.ForceUpdateCanvases();
+    LayoutRebuilder.ForceRebuildLayoutImmediate(supportListContainer.GetComponent<RectTransform>());
+}
 
     private void OnBackToMenu()
     {
