@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MentorshipPrograms.unity
     guid: 429c57fccdf4c40f9bb4d85d9c939f19
   - enabled: 1
+    path: Assets/Scenes/Scholarship.unity
+    guid: 8efcc110f263241e78799b5be64d8c6f
+  - enabled: 1
     path: Assets/Scenes/CampusEvents.unity
     guid: 1a0e17a256466468a8ff00f08fbfdc60
   m_configObjects:
