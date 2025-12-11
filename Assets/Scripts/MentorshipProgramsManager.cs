@@ -10,55 +10,51 @@ public class MentorshipProgramsManager : MonoBehaviour
     public GameObject programButtonPrefab;
     public Transform programListContainer;
     public Button backButton;
+    
+    [Header("Details Panel (Optional)")]
+    public GameObject detailsPanel;
+    public TextMeshProUGUI detailsTitle;
+    public TextMeshProUGUI detailsDescription;
+    public TextMeshProUGUI detailsLocation;
+    public TextMeshProUGUI detailsContact;
+    public TextMeshProUGUI detailsHours;
+    public Button closeDetailsButton;
 
     private List<GameObject> instantiatedButtons = new List<GameObject>();
+    private bool showingDetails = false;
 
     private void Start()
     {
         if (backButton != null)
             backButton.onClick.AddListener(OnBackToMenu);
 
-        // Wait a frame to ensure DataManager is ready
+        if (closeDetailsButton != null)
+            closeDetailsButton.onClick.AddListener(CloseDetails);
+
+        if (detailsPanel != null)
+            detailsPanel.SetActive(false);
+
         Invoke("DisplayPrograms", 0.1f);
     }
 
     private void DisplayPrograms()
     {
-        // Check if DataManager exists
         if (DataManager.Instance == null)
         {
-            Debug.LogError("DataManager not found! Make sure it exists in the Login scene.");
+            Debug.LogError("DataManager not found!");
             return;
         }
 
-        // Verify container
-        if (programListContainer == null)
-        {
-            Debug.LogError("Program List Container is not assigned!");
-            return;
-        }
-
-        // Verify prefab
-        if (programButtonPrefab == null)
-        {
-            Debug.LogError("Program Button Prefab is not assigned!");
-            return;
-        }
-
-        // Clear existing buttons
         foreach (GameObject btn in instantiatedButtons)
         {
-            if (btn != null)
-                Destroy(btn);
+            if (btn != null) Destroy(btn);
         }
         instantiatedButtons.Clear();
 
-        // Get programs from DataManager
         List<Program> programs = DataManager.Instance.mentorshipPrograms;
         
         Debug.Log($"DataManager has {programs.Count} programs");
 
-        // Create button for each program
         foreach (Program program in programs)
         {
             GameObject buttonObj = Instantiate(programButtonPrefab, programListContainer);
@@ -82,7 +78,6 @@ public class MentorshipProgramsManager : MonoBehaviour
             instantiatedButtons.Add(buttonObj);
         }
 
-        // Force layout update
         Canvas.ForceUpdateCanvases();
         LayoutRebuilder.ForceRebuildLayoutImmediate(programListContainer.GetComponent<RectTransform>());
 
@@ -91,12 +86,62 @@ public class MentorshipProgramsManager : MonoBehaviour
 
     private void OnProgramClick(string programId)
     {
-        PlayerPrefs.SetString("SelectedProgramId", programId);
-        PlayerPrefs.SetString("SelectedCategory", "mentorship");
-        PlayerPrefs.Save();
+        Program program = DataManager.Instance.GetProgramById(programId);
+        
+        if (program == null)
+        {
+            Debug.LogError($"Program not found: {programId}");
+            return;
+        }
 
-        Debug.Log($"Selected program: {programId}");
-        SceneManager.LoadScene("ProgramDetails");
+        Debug.Log($"Selected program: {program.name}");
+
+        // If we have a details panel, show it
+        if (detailsPanel != null)
+        {
+            ShowDetails(program);
+        }
+        else
+        {
+            // Just log details to console for now
+            Debug.Log($"=== {program.name} ===");
+            Debug.Log($"Description: {program.description}");
+            Debug.Log($"Location: {program.location}");
+            Debug.Log($"Contact: {program.contactInfo}");
+            Debug.Log($"Hours: {program.officeHours}");
+            Debug.Log($"Target: {program.targetAudience}");
+            Debug.Log($"Registration: {(program.registrationAvailable ? "Available" : "Closed")}");
+        }
+    }
+
+    private void ShowDetails(Program program)
+    {
+        detailsPanel.SetActive(true);
+        
+        if (detailsTitle != null)
+            detailsTitle.text = program.name;
+        
+        if (detailsDescription != null)
+            detailsDescription.text = program.description;
+        
+        if (detailsLocation != null)
+            detailsLocation.text = "📍 Location: " + program.location;
+        
+        if (detailsContact != null)
+            detailsContact.text = "📧 Contact: " + program.contactInfo;
+        
+        if (detailsHours != null)
+            detailsHours.text = "⏰ Hours: " + program.officeHours;
+
+        showingDetails = true;
+    }
+
+    private void CloseDetails()
+    {
+        if (detailsPanel != null)
+            detailsPanel.SetActive(false);
+        
+        showingDetails = false;
     }
 
     private void OnBackToMenu()
