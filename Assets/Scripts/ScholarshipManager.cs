@@ -14,12 +14,12 @@ public class ScholarshipManager : MonoBehaviour
     private List<GameObject> instantiatedButtons = new List<GameObject>();
 
     private void Start()
-    {
-        if (backButton != null)
-            backButton.onClick.AddListener(OnBackToMenu);
-
-        Invoke("DisplayScholarships", 0.1f);
-    }
+{
+    if (backButton != null)
+        backButton.onClick.AddListener(OnBackToMenu);
+    
+    Invoke("DisplayScholarships", 0.1f);
+}
 
     private void DisplayScholarships()
 {
