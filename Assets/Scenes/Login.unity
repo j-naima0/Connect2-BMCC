@@ -2110,7 +2110,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2a7fbda96b8f4b6b8c727de5326380c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DataManager
+  databaseFile: {fileID: 4900000, guid: 2787a3b49c32145ed940993e6cc61f58, type: 3}
   mentorshipPrograms: []
+  campusEvents: []
+  scholarships: []
+  academicSupport: []
 --- !u!4 &1407245254
 Transform:
   m_ObjectHideFlags: 0
