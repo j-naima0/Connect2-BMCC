@@ -1992,6 +1992,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729713158}
   m_CullTransparentMesh: 1
+--- !u!1 &2049018305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2049018307}
+  - component: {fileID: 2049018306}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2049018306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049018305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430954102a17d42cfa03653311b46eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AcademicSupportManager
+  supportButtonPrefab: {fileID: 4027269101364976355, guid: 2f8f71de76f5d4960afa2e12f90987a5, type: 3}
+  supportListContainer: {fileID: 174644690}
+  backButton: {fileID: 2136518706}
+--- !u!4 &2049018307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049018305}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2136518704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2119,3 +2166,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 739416460}
   - {fileID: 447175895}
+  - {fileID: 2049018307}
