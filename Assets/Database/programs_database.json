@@ -1,0 +1,154 @@
+{
+  "mentorshipPrograms": [
+    {
+      "id": "mp001",
+      "name": "Crear Futuros",
+      "description": "One on one mentoring for first year and continuing students. Get personalized guidance from experienced mentors.",
+      "location": "Room S-230",
+      "registrationAvailable": true,
+      "targetAudience": "First year and continuing students",
+      "contactInfo": "crearfuturos@bmcc.cuny.edu | (212) 220-1265",
+      "officeHours": "Monday-Friday 9:00 AM - 5:00 PM"
+    },
+    {
+      "id": "mp002",
+      "name": "Impact Peer",
+      "description": "Peer mentoring program connecting students with student leaders who understand your journey.",
+      "location": "Room S-230",
+      "registrationAvailable": true,
+      "targetAudience": "All students",
+      "contactInfo": "impactpeer@bmcc.cuny.edu | (212) 220-1266",
+      "officeHours": "Monday-Friday 10:00 AM - 4:00 PM"
+    },
+    {
+      "id": "mp003",
+      "name": "College Discovery",
+      "description": "Academic and career mentoring for eligible students with comprehensive support services.",
+      "location": "Room S-230",
+      "registrationAvailable": true,
+      "targetAudience": "Eligible students based on income requirements",
+      "contactInfo": "collegediscovery@bmcc.cuny.edu | (212) 220-1267",
+      "officeHours": "Monday-Friday 9:00 AM - 5:00 PM"
+    },
+    {
+      "id": "mp004",
+      "name": "ASAP Mentoring",
+      "description": "Accelerated Study in Associate Programs mentoring for full-time students.",
+      "location": "Room S-235",
+      "registrationAvailable": true,
+      "targetAudience": "ASAP enrolled students",
+      "contactInfo": "asap@bmcc.cuny.edu | (212) 220-1270",
+      "officeHours": "Monday-Friday 9:00 AM - 6:00 PM"
+    },
+    {
+      "id": "mp005",
+      "name": "Career Mentorship",
+      "description": "Connect with professionals in your field of interest for career guidance and networking.",
+      "location": "Room S-240",
+      "registrationAvailable": true,
+      "targetAudience": "All students interested in career development",
+      "contactInfo": "careermentors@bmcc.cuny.edu | (212) 220-1275",
+      "officeHours": "Tuesday-Thursday 1:00 PM - 7:00 PM"
+    }
+  ],
+  "campusEvents": [
+    {
+      "id": "ev001",
+      "name": "Welcome Week Festival",
+      "description": "Join us for a week of activities, free food, and meeting new friends!",
+      "location": "Student Center Plaza",
+      "date": "2024-09-02",
+      "time": "12:00 PM - 4:00 PM",
+      "category": "Social",
+      "registrationRequired": false
+    },
+    {
+      "id": "ev002",
+      "name": "Career Fair 2024",
+      "description": "Meet employers from top companies. Bring your resume!",
+      "location": "Gymnasium, 5th Floor",
+      "date": "2024-10-15",
+      "time": "10:00 AM - 3:00 PM",
+      "category": "Career",
+      "registrationRequired": true
+    },
+    {
+      "id": "ev003",
+      "name": "Club Fair",
+      "description": "Discover over 50 student clubs and organizations.",
+      "location": "Main Lobby",
+      "date": "2024-09-10",
+      "time": "11:00 AM - 2:00 PM",
+      "category": "Student Life",
+      "registrationRequired": false
+    },
+    {
+      "id": "ev004",
+      "name": "Study Abroad Info Session",
+      "description": "Learn about opportunities to study internationally.",
+      "location": "Room N-210",
+      "date": "2024-11-05",
+      "time": "2:00 PM - 3:30 PM",
+      "category": "Academic",
+      "registrationRequired": true
+    }
+  ],
+  "scholarships": [
+    {
+      "id": "sc001",
+      "name": "BMCC Foundation Scholarship",
+      "description": "Merit-based scholarship for students with GPA 3.0 or higher.",
+      "amount": "$1,000 - $2,500",
+      "deadline": "2024-04-15",
+      "eligibility": "GPA 3.0+, Full-time enrollment",
+      "applicationLink": "https://bmcc.edu/scholarships/foundation"
+    },
+    {
+      "id": "sc002",
+      "name": "CUNY Student Success Grant",
+      "description": "Need-based grant for students facing financial emergencies.",
+      "amount": "Up to $500",
+      "deadline": "Rolling basis",
+      "eligibility": "Demonstrated financial need",
+      "applicationLink": "https://bmcc.edu/scholarships/success-grant"
+    },
+    {
+      "id": "sc003",
+      "name": "STEM Excellence Award",
+      "description": "For students pursuing Science, Technology, Engineering, or Math degrees.",
+      "amount": "$2,000",
+      "deadline": "2024-03-01",
+      "eligibility": "STEM major, GPA 3.2+",
+      "applicationLink": "https://bmcc.edu/scholarships/stem"
+    }
+  ],
+  "academicSupport": [
+    {
+      "id": "as001",
+      "name": "Writing Center",
+      "description": "Free tutoring for all your writing assignments.",
+      "location": "Room N-520",
+      "hours": "Monday-Friday 9:00 AM - 7:00 PM",
+      "services": "Essay help, Grammar review, Citation guidance",
+      "contactInfo": "writingcenter@bmcc.cuny.edu"
+    },
+    {
+      "id": "as002",
+      "name": "Math Tutoring Lab",
+      "description": "Drop-in tutoring for all math courses.",
+      "location": "Room N-599",
+      "hours": "Monday-Thursday 10:00 AM - 6:00 PM",
+      "services": "Algebra, Calculus, Statistics help",
+      "contactInfo": "mathtutoring@bmcc.cuny.edu"
+    },
+    {
+      "id": "as003",
+      "name": "Library Research Help",
+      "description": "Get help finding sources for your research papers.",
+      "location": "Library, 4th Floor",
+      "hours": "Monday-Friday 8:00 AM - 8:00 PM",
+      "services": "Research assistance, Database training",
+      "contactInfo": "library@bmcc.cuny.edu"
+    }
+  ]
+}
